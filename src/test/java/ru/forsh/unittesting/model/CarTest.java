@@ -3,6 +3,9 @@ package ru.forsh.unittesting.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -56,5 +59,12 @@ class CarTest {
     void getOwnerIfOwnerChanges() {
         car.setOwner("Lera");
         assertArrayEquals(new String[]{"Forsh", "Lera"}, car.getOwners().toArray());
+    }
+
+    @Test
+    void privateMethodTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method method = car.getClass().getDeclaredMethod("TestMethod", null);
+        method.setAccessible(true);
+        assertEquals("abc", method.invoke(car).toString());
     }
 }

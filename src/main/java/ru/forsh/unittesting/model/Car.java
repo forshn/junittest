@@ -52,4 +52,12 @@ public class Car {
     public List<String> getOwners() {
         return owners;
     }
+
+    private String TestMethod(){
+        return "abc";
+    }
+
+    private String TestMethod(String a){
+        return "abc";
+    }
 }
