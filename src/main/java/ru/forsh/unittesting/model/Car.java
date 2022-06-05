@@ -53,11 +53,15 @@ public class Car {
         return owners;
     }
 
-    private String TestMethod(){
+    private String TestMethod() {
         return "abc";
     }
 
-    private String TestMethod(String a){
+    private String TestMethod(String a) {
         return "abc";
+    }
+
+    public int testInt(int a) {
+        return a + 4;
     }
 }
