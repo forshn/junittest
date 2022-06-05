@@ -1,9 +1,11 @@
 package ru.forsh.unittesting.model;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class CarMockitoTest {
@@ -26,5 +28,13 @@ public class CarMockitoTest {
         Car car = Mockito.mock(Car.class);
         when(car.getOwner()).thenReturn("Kolay");
         assertEquals("Kolay", car.getOwner());
+    }
+
+    @Test
+    @DisplayName("Верификация вызова метода")
+    void verificationTest(){
+        Car car = Mockito.mock(Car.class);
+        car.getOwner();
+        verify(car).getOwner(); //позволяет проверить как был получен результат
     }
 }
