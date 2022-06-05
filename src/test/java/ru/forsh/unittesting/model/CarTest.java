@@ -96,6 +96,7 @@ class CarTest {
         assertEquals("abc", method.invoke(car).toString());
     }
 
+    // тестовые параметры из файла
     @ParameterizedTest
     @DisplayName("Test demonstrates how test data could be called from file")
     @CsvFileSource(resources = "/test-data.csv", delimiter = '|', numLinesToSkip = 1)
